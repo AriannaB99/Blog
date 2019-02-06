@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="style.css"/>
+	<title>Honza's Blog - About Me</title>
+</head>
+
+<div class = center>
+	<span class = "link"> 
+		<a href="index.html">Home</a>
+	</span>
+	<span class = "link"> 
+			<a href="bio.html">About Me</a>
+	</span>
+	<span class = "link"> 
+			<a href="techtips.html">Tech Tips</a>
+	</span>
+</div>
+
+<br />
+
+<div class="image">
+      <img src="../pics/honza3v1.jpg" alt="" />
+      <h1><span>Tech Tips</span></h1>
+</div>
+<table>
+	<tr>
+		<th>Command</th>
+		<th>Description</th>
+		<th>Example</th>
+	</tr>
+	<tr>
+		<td> <code>git status</code></td>
+		<td> <p> This git command is used to check if there have been any untracked 
+		changes have been made in your repository without being committed<p></td>
+		
+<td> <pre><code>(base) C:\Users\arian\CS2610-Bunnell-Arianna-Assn1> git status 
+On branch master
+Your branch is ahead of 'origin/master' by 26 commits. 
+(use "git push" to publish your local commits)</code></pre></td>
+	</tr>
+	
+	<tr>
+		<td> <code>git add</code></td>
+		<td> <p> This git command is used to add either a file with untracked 
+		changes, or a previously untracked file to your git repository<p></td>
+		
+<td> <pre><code>(base) C:\Users\arian\CS2610-Bunnell-Arianna-Assn1> git add techtips.html</code></pre></td>
+	</tr>
+	
+	<tr>
+		<td> <code>git commit</code></td>
+		<td> <p> This git command is used to record changes which you have
+		made to your local files after you have added them, taking a 
+		"snapshot" of the file at that point in time, adding a message to be paired
+		with your commit in quotes after the -m <p></td>
+		
+<td> <pre><code>(base) C:\Users\arian\CS2610-Bunnell-Arianna-Assn1> 
+git commit techtips.html -m "sample commit"
+[master c91722e] sample commit
+1 file changed, 17 insertions(+)</code></pre></td>
+	</tr>
+	
+	<tr>
+		<td> <code>git push</code></td>
+		<td> <p> This git command is used to take the current state of 
+		your local repository and push it, along with its history, to the 
+		remote repository, so it can be accessed from other computers<p></td>
+		
+<td> <pre><code>(base) C:\Users\arian\CS2610-Bunnell-Arianna-Assn1> 
+git push https://bitbucket.org/AriannaB/cs2610-bunnell-arianna-assn1
+Username for 'https://bitbucket.org': AriannaB
+Password for 'https://AriannaB@bitbucket.org':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 502 bytes | 125.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To https://bitbucket.org/AriannaB/cs2610-bunnell-arianna-assn1
+   673ab33..c91722e  master -> master</code></pre></td>
+	</tr>
+</table>
