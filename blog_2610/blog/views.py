@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import datetime
 
 from time import strftime
 
@@ -14,10 +15,8 @@ def bio(request):
 def techtips(request):
     return render(request, 'blog/techtips.html')
 
-
-highFives = 0
-def highFive(request):
-    # Bear with me, I don't have a database yet... :(
-    global highFives
-    highFives += 1
-    return render(request, 'hello/highFive.html', { 'highFives': highFives })
+visitors = 0
+def visitors(request):
+    global visitors
+    visitors += 1
+    return render(request, 'blog/index.html', {'visitors': visitors})

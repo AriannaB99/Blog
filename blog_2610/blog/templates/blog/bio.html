@@ -7,16 +7,19 @@
 	<link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
 	<title>Honza's Blog - About Me</title>
 </head>
-
+<div class = "date">
+	It is the {% now "jS \o\f F" %}
+	</div>
 <div class = center>
+	
 	<span class = "link"> 
-		<a href="index.html">Home</a>
+		<a href=".">Home</a>
 	</span>
 	<span class = "link"> 
-			<a href="bio.html">About Me</a>
+			<a href="bio">About Me</a>
 	</span>
 	<span class = "link"> 
-			<a href="techtips.html">Tech Tips</a>
+			<a href="techtips">Tech Tips</a>
 	</span>
 </div>
 
@@ -55,7 +58,7 @@
 
 
 <h2 class = "gallery"> Gallery </h2>
-<img class = "gallerypics" src="../pics/honza2.jpeg" alt="" />
-<img class ="gallerypics" src="../pics/ball.png" alt="" />
-<img class = "gallerypics" src="../pics/honzaFence.jpeg" alt="" />
-<img class = "gallerypics" src="../pics/tennis.png" alt="" />
+<img class = "gallerypics" src="{%static 'blog/pics/honza2.jpeg' %}" alt="" />
+<img class ="gallerypics" src="{%static 'blog/pics/ball.png' %}" alt="" />
+<img class = "gallerypics" src="{%static 'blog/pics/honzaFence.jpeg' %}" alt="" />
+<img class = "gallerypics" src="{%static 'blog/pics/tennis.png' %}" alt="" />

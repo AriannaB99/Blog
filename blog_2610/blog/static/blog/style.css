@@ -4,6 +4,11 @@
 	width: 100%;
 }
 
+.date {
+	font: bold 20px Helvetica, Sans-Serif;
+	color: rgb(66, 182, 244);
+}
+
 h1 {
 	position: absolute;
 	top: 5px;
