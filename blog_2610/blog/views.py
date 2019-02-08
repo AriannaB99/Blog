@@ -4,8 +4,8 @@ import datetime
 
 from time import strftime
 
-def index(request):
-    return render(request, 'blog/index.html', {'now': strftime('%c')})
+#def index(request):
+ #   return render(request, 'blog/index.html', {'now': strftime('%c')})
 
 
 def bio(request):
@@ -16,7 +16,7 @@ def techtips(request):
     return render(request, 'blog/techtips.html')
 
 visitors = 0
-def visitors(request):
+def index(request):
     global visitors
     visitors += 1
     return render(request, 'blog/index.html', {'visitors': visitors})
