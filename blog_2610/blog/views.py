@@ -4,7 +4,15 @@ from django.http import HttpResponse
 from time import strftime
 
 def index(request):
-    return render(request, 'blog/index.html', { 'now': strftime('%c')})
+    return render(request, 'blog/index.html', {'now': strftime('%c')})
+
+
+def bio(request):
+    return render(request, 'blog/bio.html')
+
+
+def techtips(request):
+    return render(request, 'blog/techtips.html')
 
 
 highFives = 0

@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
 	<title>Honza's Blog - About Me</title>
 </head>
 
@@ -22,13 +23,13 @@
 <br />
 
 <div class="image">
-      <img src="../pics/honza3v1.jpg" alt="" />
+      <img src="{%static 'blog/pics/honza3v1.jpg' %}" alt="" />
       <h1><span>About Me</span></h1>
 </div>
 <h2> Biography </h2>
 
 <p class = "blogpost" id = "bio">
-	<img  class = "inlinepic" src="../pics/honza1.jpeg" alt="" />
+	<img  class = "inlinepic" src="{%static 'blog/pics/honza1.jpeg'%}" alt="" />
 	Etiam enim nulla, ultrices eget aliquam eget, interdum ac odio. Fusce 
 	mollis ut leo non viverra. Nunc quis metus in ipsum semper congue sit amet
 	eu nunc. Phasellus quam ipsum, malesuada id congue id, convallis non turpis.

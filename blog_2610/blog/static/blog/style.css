@@ -1,4 +1,4 @@
-
+{% load static %}
 .image{
 	position: relative;
 	width: 100%;
