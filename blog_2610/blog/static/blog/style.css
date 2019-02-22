@@ -6,7 +6,7 @@
 
 .date {
 	font: bold 20px Helvetica, Sans-Serif;
-	color: rgb(66, 182, 244);
+	color: #b0f0f4;
 }
 
 h1 {
@@ -14,6 +14,15 @@ h1 {
 	top: 5px;
 	margin-left: auto;
 	width: 100%;
+	
+}
+
+h3 {
+	color: white;
+	font: bold 50px Helevetica, Sans-Serif;
+	float: center;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.7);
 	
 }
 
@@ -104,6 +113,22 @@ td {
 
 #olist {
 	text-align: left;
+}
+
+.comment {
+	color: black;
+	font: 20px Sans-Serif;
+	text-align: center;
+	background: rgb(170, 172, 175);
+	background: rgba(170, 172, 175, 0.5);
+	padding: 2%;
+	border: 3px solid black;
+	
+}
+
+.personal {
+	text-align: left;
+	font: 20px Sans-Serif;	
 }
 
 
