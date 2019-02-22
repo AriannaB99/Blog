@@ -12,7 +12,7 @@ urlpatterns = [
     path('biohome', views.BiohomeView.as_view(), name = 'biohome'),
     path('archive', views.ArchiveView.as_view(), name = 'archive'),
     path('biohome/<int:pk>', views.BlogDetailView.as_view(), name='blog_detail'),
-#url(r'post/(?P<post_id>\d+)/$', GenreDetail.as_view(), name = 'post_detail'),
+    path('comments/create/', views.CommentCreate.as_view(), name='comment_create'),
 ]
 
 

@@ -6,6 +6,8 @@ from django.template import loader
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
+from .forms import CommentForm
+from django.views.generic.edit import CreateView
 
 from time import strftime
 
@@ -49,3 +51,8 @@ class BlogDetailView(generic.DetailView):
     model = Book'''
     #def get_queryset(self):
      #   return Comments.objects.filter('blog_id' = )
+class CommentCreate(CreateView):
+    model = Comments
+    fields = ['content', 'commenter',
+              'email_address']
+

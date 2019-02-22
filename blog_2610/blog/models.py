@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 class Blog(models.Model):
@@ -12,7 +11,6 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-
 class Comments(models.Model):
     blog_id = models.ForeignKey(Blog, on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
@@ -21,6 +19,10 @@ class Comments(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.commenter
+
+
+
+
 
     #Want to add something to check that the emdateail they enter is valid,
     #something like try:
