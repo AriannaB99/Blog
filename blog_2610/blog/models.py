@@ -15,7 +15,7 @@ class Comments(models.Model):
     blog_id = models.ForeignKey(Blog, on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
     commenter = models.CharField(max_length=30)
-    email_address = models.CharField(max_length=45)
+    email_address = models.EmailField(blank = True)
     date_posted = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.commenter
