@@ -1,18 +1,11 @@
 
-from django.forms import ModelForm
+from django import forms
 from blog.models import Comments
 
-class CommentForm(ModelForm):
-    def clean_content(self):
-        data = self.cleaned_data['content']
-        return data
-    def clean_commenter(self):
-        data = self.cleaned_data['commenter']
-        return data
-    def clean_email_address(self):
-        data = self.cleaned_data['email_address']
-        return data
-
+class CommentForm(forms.ModelForm):
+    content = forms.CharField(max_length= 300, help_text= "Comment ")
+    commenter = forms.CharField(max_length= 100, help_text= "Your Name")
+    email_address = forms.CharField(max_length= 100,  help_text= "Your Email Address")
     class Meta:
         model = Comments
         fields = ['content', 'commenter',

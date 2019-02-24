@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 import datetime
 from .models import Blog, Comments
-from django.template import loader
+from django.template import loader, RequestContext
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views import generic
-from .forms import CommentForm
+from blog.forms import CommentForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from time import strftime
@@ -51,16 +51,30 @@ class BlogDetailView(generic.DetailView):
     model = Book'''
     #def get_queryset(self):
      #   return Comments.objects.filter('blog_id' = )
-class CommentsCreate(CreateView):
-    model = Comments
-    fields = '__all__'
+def add_comment(request):
+    # Get the context from the request.
+    context = RequestContext(request)
 
-class CommentsUpdate(UpdateView):
-    model = Comments
-    fields = ['content', 'commenter',
-              'email_address']
+    # A HTTP POST?
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
 
-class CommentsDelete(DeleteView):
-    model = Comments
-    success_url = reverse_lazy('comments')
+        # Have we been provided with a valid form?
+        if form.is_valid():
+            # Save the new category to the database.
+            form.save(commit=True)
+
+            # Now call the index() view.
+            # The user will be shown the homepage.
+            return index(request)
+        else:
+            # The supplied form contained errors - just print them to the terminal.
+            print (form.errors)
+    else:
+        # If the request was not a POST, display the form to enter details.
+        form = CommentForm()
+
+    # Bad form (or form details), no form supplied...
+    # Render the form with error messages (if any).
+    return render_to_response('blog/add_comment.html', {'form': form}, context)
 
