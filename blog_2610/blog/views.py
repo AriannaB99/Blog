@@ -4,10 +4,10 @@ import datetime
 from .models import Blog, Comments
 from django.template import loader
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
+from django.urls import reverse_lazy
 from django.views import generic
 from .forms import CommentForm
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from time import strftime
 
@@ -51,8 +51,16 @@ class BlogDetailView(generic.DetailView):
     model = Book'''
     #def get_queryset(self):
      #   return Comments.objects.filter('blog_id' = )
-class CommentCreate(CreateView):
+class CommentsCreate(CreateView):
+    model = Comments
+    fields = '__all__'
+
+class CommentsUpdate(UpdateView):
     model = Comments
     fields = ['content', 'commenter',
               'email_address']
+
+class CommentsDelete(DeleteView):
+    model = Comments
+    success_url = reverse_lazy('comments')
 

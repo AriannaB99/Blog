@@ -12,7 +12,12 @@ urlpatterns = [
     path('biohome', views.BiohomeView.as_view(), name = 'biohome'),
     path('archive', views.ArchiveView.as_view(), name = 'archive'),
     path('biohome/<int:pk>', views.BlogDetailView.as_view(), name='blog_detail'),
-    path('comments/create/', views.CommentCreate.as_view(), name='comment_create'),
+]
+
+urlpatterns += [
+    path('comments/create/', views.CommentsCreate.as_view(), name='comments_create'),
+    path('comments/<int:pk>/update/', views.CommentsUpdate.as_view(), name='comments_update'),
+    path('comments/<int:pk>/delete/', views.CommentsDelete.as_view(), name='comments_delete'),
 ]
 
 
