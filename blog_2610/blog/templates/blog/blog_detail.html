@@ -38,7 +38,19 @@ On: {{blog.date_posted}}</div>
 <span style = "float:right;">{{comment.date_posted}}</span></p>
 {%endfor%}
 
-<span class = "link"><a href="add_comment">Comment </a></span>
+        <h3>Post a Comment</h3>
+		<div class="form">
+        <form id="comment_form" method="post" action="{% url 'blog:add_comment' blog.id %}">
+            {% csrf_token %}
+			<label for = "Comment"> Comment </label></br>
+				<input type = "text", name = "Comment", id = "Comment", style="height:200px;width:500px;"> </br>
+				<label for = "Username"> Username </label></br>
+				<input type = "text", name = "Username", id = "Username"> </br>
+				<label for = "EmailAddress"> Email Address </label></br>
+				<input type = "text", name = "EmailAddress", id = "EmailAddress"></br>
+            <input type="submit" name="submit" value="Create Comment" />
+        </form>
+		</div>
 
 
 

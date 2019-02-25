@@ -13,7 +13,8 @@ urlpatterns = [
     path('biohome', views.BiohomeView, name = 'biohome'),
     path('archive', views.ArchiveView, name = 'archive'),
     path('biohome/<int:question_id>', views.BlogDetailView, name='blog_detail'),
-    path('biohome/add_comment', views.add_comment, name='add_comment'),  # NEW MAPPING!
+    path('<int:question_id>/add_comment/', views.add_comment, name='add_comment')
+    #path('biohome/add_comment', views.add_comment, name='add_comment'),  # NEW MAPPING!
 ]
 
 

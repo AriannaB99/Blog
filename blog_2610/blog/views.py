@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 import datetime
 from .models import Blog, Comments
 from django.template import loader, RequestContext
@@ -47,27 +47,18 @@ def BlogDetailView(request, question_id):
         raise Http404("Blog post does not exist")
     return render(request, 'blog/blog_detail.html', {'blog': blog})
 
-    #def get_queryset(self):
-     #   return Comments.objects.filter('blog_id' = )
-def add_comment(request):
-    # Get the context from the request.
-    context = RequestContext(request)
 
+def add_comment(request, question_id):
     if request.method == 'POST':
-        form = CommentForm(request.POST)
-
-        if form.is_valid():
-
-            form.save(commit=True)
-
-            # Now call the index() view.
-            # The user will be shown the homepage.
-            return BlogDetailView(request)
+        try:
+            blog = get_object_or_404(Blog, pk=question_id)
+        except (KeyError, Blog.DoesNotExist):
+            return render(request, 'blog/blog_detail.html', {'blog': blog})
         else:
-            print (form.errors)
-    else:
-        # If the request was not a POST, display the form to enter details.
-        form = CommentForm()
+            c = blog.comments_set.create(blog_id=question_id,
+                                     content='Comment', commenter="Commenter",
+                                     email_address="EmailAddress")
+            c.save()
 
-    return render_to_response('blog/add_comment.html', {'form': form}, context)
+            return render(request, 'blog/blog_detail.html', {'blog': blog})
 
