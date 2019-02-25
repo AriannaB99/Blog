@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 import datetime
 from .models import Blog, Comments
 from django.template import loader, RequestContext
@@ -28,27 +28,25 @@ def index(request):
     visitors += 1
     return render(request, 'blog/index.html', {'visitors': visitors})
 
-class BiohomeView(generic.ListView):
-    model = Blog
-    template_name = 'blog/biohome.html'
-    context_object_name = 'latest_post_list'
-    def get_queryset(self):
-        return Blog.objects.order_by('-date_posted')[:2]
+def  BiohomeView(request):
+    latest_post_list = Blog.objects.order_by("-date_posted")[:5]
+    template = loader.get_template('blog/biohome.html')
+    context = {'latest_post_list': latest_post_list,}
+    return HttpResponse(template.render(context, request))
 
-class ArchiveView(generic.ListView):
-    model = Blog
-    template_name = 'blog/archive.html'
-    context_object_name = 'all_posts'
-    def get_queryset(self):
-        return Blog.objects.order_by('-date_posted')
+def ArchiveView(request):
+    latest_post_list = Blog.objects.order_by("-date_posted")
+    template = loader.get_template('blog/archive.html')
+    context = {'latest_post_list': latest_post_list, }
+    return HttpResponse(template.render(context, request))
 
-class BlogDetailView(generic.DetailView):
-    model =  Blog
-    template_name = "blog/blog_detail.html"
-    #template_name = "blog/detail.html"
+def BlogDetailView(request, question_id):
+    try:
+        blog = Blog.objects.get(pk = question_id)
+    except Blog.DoesNotExist:
+        raise Http404("Blog post does not exist")
+    return render(request, 'blog/blog_detail.html', {'blog': blog})
 
-    '''class BookDetailView(generic.DetailView):
-    model = Book'''
     #def get_queryset(self):
      #   return Comments.objects.filter('blog_id' = )
 def add_comment(request):
