@@ -8,19 +8,20 @@
 
     <body>
         <h3>Post a Comment</h3>
-		<div class = "form">
+		<div class="form">
         <form id="comment_form" method="post" action="add_comment">
-
+<p>hello world</p>
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}
             {% endfor %}
-
+{% comment %}
             {% for field in form.visible_fields %}
                 {{ field.errors }}
                 {{ field.help_text }} </br>
                 {{ field }} </br> </br>
             {% endfor %}
+			{% endcomment %}
 
             <input type="submit" name="submit" value="Create Comment" />
         </form>
