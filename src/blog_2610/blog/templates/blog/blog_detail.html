@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+	<title>Honza's Blog - {{blog.title}}</title>
+</head>
+<div class = "date">
+	It is the {% now "jS \o\f F" %}
+	</div>
+<div class = center>
+	<span class = "link"> 
+			<a href="../bio">About Me</a>
+	</span>
+	<span class = "link"> 
+			<a href="../techtips">Tech Tips</a>
+	</span>
+	<span class = "link"> 
+			<a href="../.">Home</a>
+	</span>
+	<span class = "link"> 
+			<a href="../archive">Archives</a>
+	</span>
+</div>
+
+<h3>{{blog.title}}</h3>
+<div class = "personal"> Posted by: {{blog.author_name}} </br>
+On: {{blog.date_posted}}</div>
+<p class = "blogpost" > {{blog.content}} </p>
+{%for comment in blog.comments_set.all%}
+<p class = "comment"> {{comment.content}} </br> </br><span style = "float: right;"> {{comment.commenter}},  {{comment.email_address}}</span> </br>
+<span style = "float:right;">{{comment.date_posted}}</span></p>
+{%endfor%}
+
+        <h3>Post a Comment</h3>
+		<div class="form">
+        <form id="comment_form" method="post" action="{% url 'blog:add_comment' blog.id %}">
+            {% csrf_token %}
+			<label for = "Comment"> Comment </label></br>
+				<input type = "text", name = "Comment", id = "Comment", style="height:200px;width:500px;"> </br>
+				<label for = "Username"> Username </label></br>
+				<input type = "text", name = "Username", id = "Username"> </br>
+				<label for = "EmailAddress"> Email Address </label></br>
+				<input type = "text", name = "EmailAddress", id = "EmailAddress"></br>
+            <input type="submit" name="submit" value="Create Comment" />
+        </form>
+		</div>
+
+
+
+
+
+

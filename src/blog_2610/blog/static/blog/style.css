@@ -1,0 +1,143 @@
+{% load static %}
+.image{
+	position: relative;
+	width: 100%;
+}
+
+.date {
+	font: bold 20px Helvetica, Sans-Serif;
+	color: #b0f0f4;
+}
+
+h1 {
+	position: absolute;
+	top: 5px;
+	margin-left: auto;
+	width: 100%;
+	
+}
+
+h3 {
+	color: white;
+	font: bold 50px Helevetica, Sans-Serif;
+	float: center;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.7);
+	
+}
+
+h1 span {
+	color: white;
+	font: bold 100px/100px Helvetica, Sans-Serif;
+	letter-spacing: -1px;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.7);
+	padding: 10px;
+}
+
+.link a {
+  text-align: center;
+  border: 3px solid black;
+  font: bold 20px Helvetica, Sans-Serif;
+  padding-right: 50px;
+  padding-left: 50px;
+  text-decoration: none;
+}
+
+.center {
+	text-align: center;
+}
+
+.blogpost {
+	color: white;
+	font: 20px Sans-Serif;
+	text-align: center;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.7);
+	padding: 2%;
+	border: 3px solid black;
+}
+
+h2 {
+	text-align: left;
+	font: bold 30px Sans-Serif;
+	color: black;
+}
+
+#bio {
+	font-family: Helvetica;
+	margin: 20px;
+	text-align: left;
+	float: left;
+}
+
+.inlinepic {
+	border:2px solid black;
+	float: left;
+	margin-right: 20px;
+	height: 370px;
+}
+
+.gallery {
+	font-style: italic;
+	font-size: 40px;
+	text-align: center;
+}
+
+.gallerypics {
+	height: 420px;
+	margin: 20px;
+	border:2px solid black;
+	float: left;
+}
+
+th {
+	border:2px solid black;
+	text-align: center;
+	font: bold 20px Helvetica, Sans-Serif;
+	color: white;
+	background: gray;
+	padding: 15px;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td {
+	border:2px solid black;
+	font-size: 20px;
+	text-align: center;
+}
+
+#olist {
+	text-align: left;
+}
+
+.comment {
+	color: black;
+	font: 20px Sans-Serif;
+	text-align: center;
+	background: rgb(170, 172, 175);
+	background: rgba(170, 172, 175, 0.5);
+	padding: 2%;
+	border: 3px solid black;
+	
+}
+
+.personal {
+	text-align: left;
+	font: 20px Sans-Serif;	
+}
+
+.form {
+	color: black;
+	font: 20px Sans-Serif;
+	text-align: center;
+	padding: 2%;
+	border: 3px solid black;
+}
+
+
+/*rgb(245, 244, 244)*/

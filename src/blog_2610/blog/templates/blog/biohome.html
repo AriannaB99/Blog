@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+	<title>Honza's Blog - Home</title>
+</head>
+<div class = "date">
+	It is the {% now "jS \o\f F" %}
+	</div>
+<div class = center>
+	
+	<span class = "link"> 
+			<a href="bio">About Me</a>
+	</span>
+	<span class = "link"> 
+			<a href="techtips">Tech Tips</a>
+	</span>
+	<span class = "link"> 
+			<a href=".">Home</a>
+	</span>
+	<span class = "link"> 
+			<a href="archive">Archives</a>
+	</span>
+</div>
+
+<br />
+
+<div class="image">
+      <img src="{%static 'blog/pics/honza3v1.jpg' %}" alt="" />
+      <h1><span>Home</span></h1>
+</div>
+
+{% if latest_post_list %}
+    {% for blog in latest_post_list %}
+       <p class = "blogpost">
+	    <span style = "float: left;"><a href="{% url 'blog:blog_detail' blog.id %}" style = "color: white;">{{blog.date_posted}}</a></span></br>
+	   <span style = "color: #c6cad1; font-size: 30px;">{{blog.title}} </br></span>{{  blog.content|truncatewords:200  }} </br></br> <span style = "float: right;">Comment Count: 
+	   {{ blog.comments_set.count }}</span></p>
+    {% endfor %}
+{% else %}
+    <p>No recent posts are available.</p>
+{% endif %}
