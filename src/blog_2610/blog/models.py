@@ -17,6 +17,8 @@ class Comments(models.Model):
     commenter = models.CharField(max_length=30)
     email_address = models.EmailField(blank = True)
     date_posted = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ('-date_posted',)
     def __str__(self):
         return self.commenter
 

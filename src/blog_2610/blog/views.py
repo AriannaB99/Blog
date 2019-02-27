@@ -59,6 +59,7 @@ def ArchiveView(request):
 def BlogDetailView(request, question_id):
     try:
         blog = Blog.objects.get(pk = question_id)
+        #latest_comments = blog.comments_set.order_by("-date_posted")
     except Blog.DoesNotExist:
         raise Http404("Blog post does not exist")
     return render(request, 'blog/blog_detail.html', {'blog': blog})
