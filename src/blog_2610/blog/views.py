@@ -21,7 +21,7 @@ filler_commments = ["Etiam convallis nec ligula non iaculis. Morbi id justo at n
                     "Donec massa metus, pulvinar id nunc a, ornare maximus lectus. Etiam nec gravida lacus. Praesent faucibus arcu vitae mollis ultrices. Quisque eget elit auctor, varius enim vitae, lacinia nisi."]
 
 def bio(request):
-    return render(request, 'blog/bio.html')
+    return render(request, 'blog/index.html')
 
 def init(request):
     #deleting all of the blog posts which we have and their associated comments
@@ -32,17 +32,18 @@ def init(request):
         for j in range(0, 3):
             c = b.comments_set.create(content = filler_commments[j], commenter = filler_names[j], email_address = filler_emails[j])
             c.save()
-    return render(request, 'blog/bio.html')
+
+    return render(request, 'blog/index.html')
 
 
 def techtips(request):
     return render(request, 'blog/techtips.html')
 
-visitors = 0
+'''visitors = 0
 def index(request):
     global visitors
     visitors += 1
-    return render(request, 'blog/index.html', {'visitors': visitors})
+    return render(request, 'blog/index.html', {'visitors': visitors})'''
 
 def  BiohomeView(request):
     latest_post_list = Blog.objects.order_by("-date_posted")[:5]
